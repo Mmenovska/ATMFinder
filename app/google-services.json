@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "244680328828",
+    "firebase_url": "https://atmfinder-a9215.firebaseio.com",
+    "project_id": "atmfinder-a9215",
+    "storage_bucket": "atmfinder-a9215.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:244680328828:android:da28115e28b1ef1b336bf9",
+        "android_client_info": {
+          "package_name": "com.gsixacademy.android.atmfinder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "244680328828-l8f56jeb5l349821kqcbksf1pue7ogfl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gsixacademy.android.atmfinder",
+            "certificate_hash": "5adce7b6920f237076983db4f746a5f560669aaf"
+          }
+        },
+        {
+          "client_id": "244680328828-in6916756m7k8loh65irv43oap5kre31.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRRKkK7x6iMkgae-xYOrz2Pju-k1rnLWY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "244680328828-in6916756m7k8loh65irv43oap5kre31.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
