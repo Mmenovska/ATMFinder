@@ -48,7 +48,6 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         googleMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(activity,R.raw.my_map_style))
 
         setMarkers()
-        CurrentLocationActivity()
 
     }
 
