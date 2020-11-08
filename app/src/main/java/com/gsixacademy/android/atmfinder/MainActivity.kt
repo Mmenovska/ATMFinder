@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     lateinit var database : DatabaseReference
     var atmsListModel : AtmsModel? = null
-    var nearestAtms = ArrayList<String>()
+
 
 
 

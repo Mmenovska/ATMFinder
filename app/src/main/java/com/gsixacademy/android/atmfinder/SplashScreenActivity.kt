@@ -12,7 +12,6 @@ class SplashScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        supportActionBar?.hide()
         GlobalScope.launch {
             Thread.sleep(3000)
             startActivity(Intent(applicationContext, MainActivity::class.java))
