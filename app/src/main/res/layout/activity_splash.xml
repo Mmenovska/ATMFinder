@@ -7,7 +7,7 @@
         android:id="@+id/ivSplash"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/splash_screen"
+        android:src="@drawable/new_splash_screen_resized"
         android:scaleType="fitXY"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
