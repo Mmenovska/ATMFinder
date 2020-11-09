@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Address
 import android.location.Geocoder
+import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -13,6 +14,7 @@ import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Polyline
 import com.google.firebase.database.*
 import com.google.maps.android.PolyUtil
@@ -30,6 +32,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     lateinit var database : DatabaseReference
     var atmsListModel : AtmsModel? = null
+    var atmList : ArrayList<AtmsData> = ArrayList()
+    var atmSortedList : ArrayList<AtmsData> = ArrayList()
+
+
 
 
 
@@ -42,6 +48,11 @@ class MainActivity : AppCompatActivity() {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         getAdress()
         initialiseFirebaseDataBase()
+        getSortedAtmList()
+        recycler_view_main.adapter = AtmListAdapter(atmSortedList){}
+
+
+
 
 
 
@@ -81,10 +92,34 @@ class MainActivity : AppCompatActivity() {
                     val address : kotlin.String = addressess[0].getAddressLine(0).split(",")[0]
                     edit_text_location.setText(address  )
 
+
+
                 }
+
             })
         }
     }
+
+    fun getSortedAtmList () {
+        if (atmList.isNotEmpty()) {
+            for (item in atmList) {
+                val userLocation = Location ("point A")
+                userLocation.latitude = fusedLocationClient.lastLocation.result.latitude
+                userLocation.longitude = fusedLocationClient.lastLocation.result.longitude
+                val locationB = Location("point B")
+                locationB.latitude = item.lat_long?.latitude ?: 0.0
+                locationB.longitude = item.lat_long?.longitude ?: 0.0
+                val distance = userLocation.distanceTo(locationB)
+                if (distance <= 1000){
+                    atmSortedList.add(item)
+                }
+
+
+            }
+        }
+
+    }
+
 
     fun initialiseFirebaseDataBase (){
         val postListener = object : ValueEventListener {
