@@ -15,7 +15,6 @@ class AtmsData() : Parcelable {
     var logo : String? = null
     var bank : String? = null
     var lat_long : LatLongData? = null
-    var distance : Float = 0.0F
     constructor(parcel: Parcel) : this (){
         id = parcel.readString()
         address = parcel.readString()

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
+    android:background="@color/LightGray">
+
+    <LinearLayout
+        android:id="@+id/linear_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@android:color/black">
+
+        <TextView
+            android:id="@+id/text__view_location"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/rounded_corners"
+            android:layout_margin="20dp"
+            android:hint="Your current location"
+            android:padding="10dp"
+            android:textColor="@color/darkGray"/>
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop = "10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="40dp"
+            android:padding="10dp"
+            android:background="@drawable/rounded_corners"
+            />
+
+
+    </LinearLayout>
+
+    <include layout="@layout/activity_recycler_view"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floating_action_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_anchor="@id/linear_city"
+        app:layout_anchorGravity="right|bottom"
+        android:layout_marginRight="10dp"
+        android:tint="@android:color/white"
+        android:src="@drawable/locator_icon"
+        />
+
+
+
+
+
+    
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
