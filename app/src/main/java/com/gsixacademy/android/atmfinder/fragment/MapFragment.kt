@@ -1,13 +1,9 @@
-package com.gsixacademy.android.atmfinder
+package com.gsixacademy.android.atmfinder.fragment
 
-import android.annotation.SuppressLint
-import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -17,8 +13,9 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.MapStyleOptions
 import com.google.android.gms.maps.model.MarkerOptions
+import com.gsixacademy.android.atmfinder.MainActivity
+import com.gsixacademy.android.atmfinder.R
 import com.gsixacademy.android.atmfinder.data.AtmsModel
-import com.gsixacademy.android.atmfinder.utils.CurrentLocationActivity
 
 class MapFragment : Fragment(), OnMapReadyCallback {
 
@@ -31,7 +28,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate (R.layout.activity_map,container,false)
+        return inflater.inflate (R.layout.fragment_map,container,false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -45,7 +42,9 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
-        googleMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(activity,R.raw.my_map_style))
+        googleMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(activity,
+            R.raw.my_map_style
+        ))
 
         setMarkers()
 
@@ -65,7 +64,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
             val bounds = builder.build()
             val padding = 90
             val cameraUpdate = CameraUpdateFactory.newLatLngBounds(bounds,padding)
-            map.moveCamera(cameraUpdate)
+            map.animateCamera(cameraUpdate)
         }
     }
 

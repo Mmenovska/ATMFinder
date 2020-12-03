@@ -9,7 +9,7 @@ import com.gsixacademy.android.atmfinder.data.AtmsData
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_atm.view.*
 
-class AtmListAdapter ( var atmList : ArrayList<AtmsData>, val atmsAdapterClickEvent : (AtmsAdapterClickEvent.AtmsAdapterItemClicked) -> Unit ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class AtmListAdapter ( var atmList : ArrayList<AtmsData>, val atmsAdapterClickEvent : (AtmsAdapterClickEvent.onAtmsAdapterItemClicked) -> Unit ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return MyViewHolder ( LayoutInflater.from(parent.context).inflate(R.layout.activity_atm,parent,false))
@@ -19,10 +19,6 @@ class AtmListAdapter ( var atmList : ArrayList<AtmsData>, val atmsAdapterClickEv
         return atmList.size
     }
 
-    fun addAtms (newAtmList : ArrayList<AtmsData>){
-        atmList = newAtmList
-        notifyDataSetChanged()
-    }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         var myViewHolder = holder as MyViewHolder
