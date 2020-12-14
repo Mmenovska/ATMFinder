@@ -10,6 +10,8 @@ import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.app.ActivityCompat
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.firebase.database.*
@@ -37,14 +39,20 @@ class MainActivity : AppCompatActivity() {
     lateinit var atmListAdapter: AtmListAdapter
     var wayLatitude : Double = 0.0
     var wayLongitude : Double = 0.0
+    lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         database = FirebaseDatabase.getInstance().reference
+        navController = Navigation.findNavController(this,R.id.navigation_host_fragment)
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
         initialiseFirebaseDataBase()
         getAdress()
+
+        recycler_view_main.setOnClickListener {
+            navController.navigate(R.id.action_global_map_fragment)
+        }
 
 
 
